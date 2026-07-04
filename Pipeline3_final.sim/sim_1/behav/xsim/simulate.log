@@ -1,0 +1,80 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+
+=========================================================================
+  5-Stage Pipelined RISC-V Processor - Hazard Testbench
+=========================================================================
+
+Program (8 instructions):
+  0x00: addi x4,  x0,  10
+  0x04: sw   x4,  4(x11)
+  0x08: lw   x5,  4(x11)
+  0x0C: jal  x8,  +8       -> jumps to 0x14
+  0x10: jal  x12, +12      *** FLUSHED by jal ***
+  0x14: sub  x6,  x6, x5
+  0x18: beq  x0,  x0, -8   -> loops back to 0x10 once
+  0x1C: add  x10, x9, x5   *** FLUSHED by beq ***
+
+Expected Hazards:
+  - Cycle 3-4 : Forwarding (sw/lw uses addi result)
+  - Cycle 6   : Load-use STALL (sub needs x5 from lw)
+  - Cycle 5   : JAL flush (jal x12 flushed)
+  - Cycle 9   : BEQ flush (add x10 flushed)
+
+-------------------------------------------------------------------------------------------------------
+ Cyc |  IF      |  ID      |  EX      |  MEM     |  WB      | S  F  FWD
+     |          |          |          |          |          | Stl Fls Fwd
+-------------------------------------------------------------------------------------------------------
+   1 | addi     | NOP/BUB  | NOP/BUB  | NOP/BUB  | NOP/BUB  | 0  0  N
+   2 | sw       | addi     | NOP/BUB  | NOP/BUB  | NOP/BUB  | 0  0  N
+   3 | lw       | sw       | addi     | NOP/BUB  | NOP/BUB  | 0  0  Y
+     |          |          | SrcA:REG       SrcB:FWD-MEM 
+   4 | jal      | lw       | sw       | addi     | NOP/BUB  | 0  0  Y
+     |          |          | SrcA:REG       SrcB:FWD-WB  
+   5 | jal      | jal      | lw       | sw       | addi     | 0  1  N
+     | *** Jump/Branch -> PC = 0x00000014 ***
+   6 | sub      | NOP/BUB  | NOP/BUB  | lw       | sw       | 0  0  N
+   7 | sub      | sub      | NOP/BUB  | NOP/BUB  | lw       | 0  0  N
+   8 | beq      | sub      | sub      | NOP/BUB  | NOP/BUB  | 0  0  N
+   9 | add      | beq      | sub      | sub      | NOP/BUB  | 0  1  N
+     | *** Jump/Branch -> PC = 0x00000010 ***
+  10 | addi     | NOP/BUB  | NOP/BUB  | sub      | sub      | 0  0  N
+  11 | jal      | addi     | NOP/BUB  | NOP/BUB  | sub      | 0  0  N
+  12 | sub      | jal      | addi     | NOP/BUB  | NOP/BUB  | 0  1  N
+     | *** Jump/Branch -> PC = 0x0000001c ***
+  13 | beq      | NOP/BUB  | NOP/BUB  | addi     | NOP/BUB  | 0  0  N
+  14 | add      | beq      | NOP/BUB  | NOP/BUB  | addi     | 0  0  N
+  15 | addi     | add      | beq      | NOP/BUB  | NOP/BUB  | 0  0  N
+  16 | addi     | addi     | add      | beq      | NOP/BUB  | 0  0  N
+  17 | addi     | addi     | addi     | add      | beq      | 0  0  N
+  18 | addi     | addi     | addi     | addi     | add      | 0  0  N
+  19 | addi     | addi     | addi     | addi     | addi     | 0  0  N
+  20 | addi     | addi     | addi     | addi     | addi     | 0  0  N
+  21 | addi     | addi     | addi     | addi     | addi     | 0  0  N
+-------------------------------------------------------------------------------------------------------
+
+Hazard Summary:
+   Stall cycles  : 0
+   Flush cycles  : 3
+   Fwd cycles    : 2
+
+=========================================================================
+ Final Register File Verification
+=========================================================================
+  [PASS]      addi x4=10       x 4 = 10
+  [PASS]      lw   x5=10       x 5 = 10
+  [PASS]      jal  x8=0x10     x 8 = 16
+  [PASS]      sub  x6,x6,x5    x 6 = -10
+  [FAIL]      x12 not written  x12 = 20  (expected 0)
+
+Hazard-specific checks:
+  [PASS] LOAD-USE STALL  : x5 = 10 (lw stall worked)
+  [FAIL] JAL FLUSH       : x12 = 20 (should be 0)
+  [PASS] JAL LINK        : x8 = 16 (return addr = 0x10)
+
+=========================================================================
+ RESULT: 4 PASSED / 1 FAILED
+ *** SOME TESTS FAILED ***
+=========================================================================
+
+$finish called at time : 236 ns : File "E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sim_1/new/new_tb.v" Line 277

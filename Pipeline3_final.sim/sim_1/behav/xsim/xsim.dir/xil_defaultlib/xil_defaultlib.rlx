@@ -1,0 +1,24 @@
+0.6
+2018.2
+Jun 14 2018
+20:41:02
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.sim/sim_1/behav/xsim/glbl.v,1782400601,verilog,,,,glbl,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sim_1/new/forward_tb.v,1782400604,verilog,,,,forward_tb,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sim_1/new/new_tb.v,1782443436,verilog,,,,tb_new,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/Decode_cycle.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/Execute_cycle.v,,Decode_cycle,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/Execute_cycle.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/Fetch_cycle.v,,Execute_cycle,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/Fetch_cycle.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/Memory_cycle.v,,Fetch_cycle,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/Memory_cycle.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/PC32bit.v,,Memory_cycle,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/PC32bit.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/WriteBack_cycle.v,,PC_32bit,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/WriteBack_cycle.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/adder_32bit.v,,WriteBack_cycle,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/adder_32bit.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/alu_logic.v,,adder_32bit,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/alu_logic.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/data_mem.v,,alu_logic,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/data_mem.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/hazard_handling.v,,data_mem,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/hazard_handling.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/imm_ext.v,,hazard_handling,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/imm_ext.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/inst_mem.v,,imm_ext,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/inst_mem.v,1782405541,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/main_decoder.v,,inst_mem,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/main_decoder.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/mux.v,,main_decoder,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/mux.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/mux3_1.v,,mux,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/mux3_1.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/reg_file.v,,mux3_1,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/reg_file.v,1782407647,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/top_module.v,,reg_file,,,,,,,,
+E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sources_1/new/top_module.v,1782400604,verilog,,E:/Chip Design Giki/Computer Architecture/Pipeline3_2018/Pipeline3_2018.srcs/sim_1/new/new_tb.v,,top_module,,,,,,,,
